@@ -4,7 +4,7 @@
  * Framework-agnostic - no HTTP details
  */
 import { TokenAllocationEngine, TokenEventType } from '@engines/AllocationEngine';
-import { Token, TimeSlot, Patient, Doctor } from '@models/types';
+import { Token, TimeSlot } from '@models/types';
 import { AllocationResult } from '@models/AllocationResult';
 import { TokenSource, TokenStatus } from '@models/enums';
 import { getPriorityScore } from '@utils/PriorityResolver';
@@ -495,7 +495,7 @@ export class TokenService {
    * 
    * @private
    */
-  private validateDoctor(doctorId: string): ServiceResponse {
+  private validateDoctor(_doctorId: string): ServiceResponse {
     // For now, we'll skip actual doctor validation since we don't have a doctors map
     // In production, this would check storage.doctors
     return { success: true };

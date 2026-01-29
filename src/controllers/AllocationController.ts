@@ -389,7 +389,7 @@ export class TokenController {
    * In production, this would query a repository/database
    * @private
    */
-  private getMockAvailableSlots(doctorId: string): TimeSlot[] {
+  private getMockAvailableSlots(_doctorId: string): TimeSlot[] {
     // Mock implementation - returns empty array for now
     // In production, this would fetch from database
     return [];

@@ -68,7 +68,7 @@ export function getAvailableCapacity(slot: TimeSlot): number {
  */
 export function canReallocateToken(
   existingToken: Token,
-  newSlotTime: Date,
+  _newSlotTime: Date,
 ): ValidationResult {
   // Check token status
   if (existingToken.status !== TokenStatus.ACTIVE) {

@@ -6,7 +6,6 @@ import { TokenService, CreateTokenRequest } from '@services/AllocationService';
 import { Doctor, TimeSlot, Patient, Token } from '@models/types';
 import { TokenSource, TokenStatus } from '@models/enums';
 import { storage } from '@utils/storage';
-import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Simulation configuration
@@ -394,7 +393,6 @@ export class OPDDaySimulation {
     });
 
     // Count by status
-    const activeTokens = allTokens.filter((t) => t.status === TokenStatus.ACTIVE).length;
     const cancelledTokens = allTokens.filter((t) => t.status === TokenStatus.CANCELLED).length;
     const noShowTokens = allTokens.filter((t) => t.status === 'NO_SHOW').length;
     const emergencyTokens = allTokens.filter((t) => t.source === TokenSource.EMERGENCY).length;

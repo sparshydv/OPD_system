@@ -6,11 +6,11 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
+    "dev": "ts-node --require tsconfig-paths/register src/index.ts",
     "watch": "tsc --watch",
     "dev:watch": "concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
-    "simulate": "ts-node src/simulation/runSimulation.ts",
-    "simulate:detailed": "ts-node src/simulation/detailedSimulation.ts"
+    "simulate": "ts-node --require tsconfig-paths/register src/simulation/runSimulation.ts",
+    "simulate:detailed": "ts-node --require tsconfig-paths/register src/simulation/detailedSimulation.ts"
   },
   "keywords": [
     "opd",

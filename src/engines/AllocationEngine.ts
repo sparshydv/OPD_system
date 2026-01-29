@@ -49,7 +49,6 @@ export interface TokenEvent {
 
 export class TokenAllocationEngine {
   private name: string;
-  private maxEvictionRetries: number = 3;
   private reallocationLog: ReallocationEvent[] = [];
   private eventLog: TokenEvent[] = [];
   private enableLogging: boolean = true;
@@ -651,7 +650,7 @@ export class TokenAllocationEngine {
       }
 
       // Try to promote a waiting token
-      const promotedToken = this.promoteFromWaitingQueue(slotId, slot);
+      const promotedToken = this.promoteFromWaitingQueue(slotId, slot ?? undefined);
 
       if (promotedToken) {
         // Create PROMOTED event
@@ -1137,7 +1136,7 @@ export class TokenAllocationEngine {
       }
 
       // Try to promote a waiting token
-      const promotedToken = this.promoteFromWaitingQueue(slotId, slot);
+      const promotedToken = this.promoteFromWaitingQueue(slotId, slot ?? undefined);
 
       if (promotedToken) {
         this.log(`Promoted waiting token ${promotedToken.id} to slot ${slotId}`);
